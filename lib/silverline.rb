@@ -1,7 +1,8 @@
 require "silverline/constants"
 require 'sinatra'
 require 'launchy'
-require 'view'
+require 'views/view'
+require 'views/button'
 
 module Silverline
   class Silverline < Sinatra::Base

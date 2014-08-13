@@ -1,13 +1,12 @@
-require 'entity'
+require 'views/entity'
 
 module Silverline
   module Views
     class View < Entity
       def initialize( id, &block )
-        @id = id.to_sym
+        super( id, &block )
         @open_tag = %q{script text="text/html"}
-        @close_tag = %q{/script}
-        yield if block_given?
+        @close_tag = %q{script}
       end
     end
   end
