@@ -10,6 +10,7 @@ module Silverline
         @id = id.to_sym
         @contents = []
         if block_given?
+          # We want to run this block in the context of this instance.
           define_singleton_method( :dispatch, &block )
           dispatch
         end
@@ -20,7 +21,6 @@ module Silverline
       end
 
       def to_html
-        byebug
         contents = ''
         @contents.each do |entity|
           contents += entity.to_s

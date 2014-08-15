@@ -5,7 +5,7 @@ module Silverline
     class View < Entity
       def initialize( id, &block )
         super( id, &block )
-        @open_tag = %q{script text="text/html"}
+        @open_tag = %q{script text="html"}
         @close_tag = %q{script}
       end
     end
@@ -13,5 +13,5 @@ module Silverline
 end
 
 def view( id, &block )
-  return Silverline::Views::View.new( id, &block )
+  Silverline::Silverline.instance.add_view( Silverline::Views::View.new( id, &block ) )
 end
